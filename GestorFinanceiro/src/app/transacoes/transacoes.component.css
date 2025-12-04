@@ -1,0 +1,110 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+header h1 {
+  margin-bottom: 5px;
+}
+
+header h3 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.form-transacao {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  padding: 5px;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.recarregar {
+  margin-bottom: 20px;
+}
+
+.lista-transacoes {
+  list-style-type: none;
+  padding: 0;
+}
+
+.lista-transacoes li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+.lista-transacoes li.entrada {
+  background-color: #3b814f;
+}
+
+.lista-transacoes li.saida {
+  background-color: #ad6565;
+}
+
+.categoria {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.valor {
+  margin-right: 10px;
+}
+
+.data {
+  margin-right: 10px;
+  font-size: 12px;
+  color: #555;
+}
+
+.descricao {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.excluir {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+.erro {
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+}

@@ -1,0 +1,57 @@
+<div class="container">
+  <header>
+    <h1>Gestor Financeiro</h1>
+
+      <!-- Calcula o saldo atual a cada atualização no BD -->
+    <h3>Saldo Atual: R${{ saldoAtual }}</h3>
+  </header>
+
+  <!-- Formulário para adicionar transações -->
+  <form (ngSubmit)="criar()" class="form-transacao">
+    <div class="form-group">
+      <label for="tipo">Tipo:</label>
+      <select id="tipo" [(ngModel)]="tipo" name="tipo" required>
+        <option value="entrada">Entrada</option>
+        <option value="saida">Saída</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="categoria">Categoria:</label>
+      <input id="categoria" type="text" [(ngModel)]="categoria" name="categoria" required />
+    </div>
+
+    <div class="form-group">
+      <label for="valor">Valor:</label>
+      <input id="valor" type="number" [(ngModel)]="valor" name="valor" required />
+    </div>
+
+    <div class="form-group">
+      <label for="data">Data:</label>
+      <input id="data" type="date" [(ngModel)]="data" name="data" required />
+    </div>
+
+    <button type="submit" [disabled]="salvando">Salvar</button>
+  </form>
+
+  <!-- Botão para recarregar os dados, puxando do BD toda vez que é acionado -->
+  <button class="recarregar" (click)="carregar()" [disabled]="carregando">
+    Recarregar Transações
+  </button>
+
+  <!-- Lista de transações -->
+  <ul class="lista-transacoes">
+    @for (t of transacoes; track t._id) {
+        <li>
+        <strong>{{ t.tipo }}</strong>
+        <span class="categoria" [ngStyle]="{'color': corCategoria(t.categoria)}">{{ t.categoria }}</span>
+        <span class="valor">R${{ t.valor }}</span>
+        <span class="data">{{ t.data }}</span>
+        <button class="excluir" (click)="excluir(t._id)">Excluir</button>
+        </li>
+    }
+  </ul>
+
+  <!-- Mensagem de erro -->
+  <div class="erro" *ngIf="erro">{{ erro }}</div>
+</div>
